@@ -1,10 +1,10 @@
 ---
-title: prodtest
+title: Prodtest
 sidebar_position: 1
 slug: /
 ---
 
-# prodtest
+# Prodtest
 
 The testing in production knowledge framework
 
