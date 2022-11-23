@@ -46,3 +46,5 @@ Since the goal of a dark launch it to test a new or updated service in a product
 Since you are testing a new feature in a production envorinment using production data (from the mirrored requests), you have to be very careful nog to save the responses from the new feature or service to the production database that **is** exposed to end users. How you can separate the test and production data in the production environment will be elaborated in a future iteration.
 
 ## Example of a dark launch
+
+You can find examples of a dark launch in the [demo project](/demo).
