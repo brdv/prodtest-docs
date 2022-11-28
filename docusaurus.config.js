@@ -93,8 +93,12 @@ const config = {
             title: 'More',
             items: [
               {
-                label: 'GitHub',
+                label: 'Docs repository',
                 href: 'https://github.com/brdv/prodtest-docs',
+              },
+              {
+                label: 'Demo repository',
+                href: 'https://github.com/brdv/prodtest-demo',
               },
             ],
           },

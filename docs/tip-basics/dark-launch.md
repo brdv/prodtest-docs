@@ -29,6 +29,9 @@ The first use case is dark launching a service that is accessed by a proxy. Sinc
 
 Another use case is when you want to dark launch a service that is not accessed through a proxy but has an internal connection. **_This use case will be explored in a later iteration._**
 
+Which option is best suited for you, depends on your use case. Basically it depends of the architecture and the origin of the request you will use. If you want to dark launch something that sits behind a proxy, take advantage of that proxy. An example implementation can be found here.
+If your use case consists of communication withing a cluster between two services, a proxy implementation of a dark launch might not suffice. In that case, look into other options as described here.
+
 ### Proxy
 
 A proxy - or proxyserver - is a server application that sits in between a client and a resource and that acts as an intermediary. The benefits of a proxy is that the client does not have to have a direct connection to the resource but can request a resource by the proxy. The proxy in turn passes the request to the resource and returns the response. This intermediary can allow you to make a copy of (a percentage of) all incoming requests and send that copy to a newer version of the resource. Both resources can log relevant information that in turn can be sent to a monitoring service. This would look as follows:
