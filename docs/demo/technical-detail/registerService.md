@@ -27,6 +27,8 @@ Since this service is quite simple at the moment, the flow above is also quite s
 
 ## Implementation
 
+Below you can see an overview of the implemented classes to realise the RegisterService.
+
 ![class diagram](./img/register-service-class-diagram.png)
 
 ## Development Choices
