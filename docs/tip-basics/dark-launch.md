@@ -50,4 +50,4 @@ Since you are testing a new feature in a production envorinment using production
 
 ## Example of a dark launch
 
-You can find examples of a dark launch in the [demo project](/demo).
+You can find examples of a dark launch in the [demo project](/category/demo-project).
