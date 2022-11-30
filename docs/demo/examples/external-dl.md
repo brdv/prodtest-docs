@@ -38,7 +38,7 @@ Once everything is setup and configured correcly for Traefik, you can start usin
 
 \* Before you can implement data mirroring within your cluster using Traefik, you have to install some custom [CRD's](https://doc.traefik.io/traefik/providers/kubernetes-crd/), or you can use the [Traefik Helm Chart](https://doc.traefik.io/traefik/getting-started/install-traefik/#use-the-helm-chart). The latter is used in the demo project.
 
-### Defining resources
+### Resource definition
 
 Next step is to define your kubernetes resources. As mentioned in the section above, we'll use two CRD's of Traefik for this: TraefikService and IngressRoute.
 The IngressRoute is implemented as follows:
@@ -88,4 +88,11 @@ On line 2, we specify that this resource is a TraefikService, and we give it the
 We specify that we want to use mirroring by adding a `mirroring` block to the spec on line 8.
 Inside this block we specifiy what and how we want to mirror incoming requests. The first block (line 9) is the service we use by default, meaning that all requests will go here and the responses of the used service will be returned. On line 12 we specify what service to mirror requests to and the last line specifies what percentage if incoming requests must be mirrored. In this case 100% (all requests).
 
-## TODO: Show that it's working.
+### Applying resources
+
+Once you've setup both resources, you have to apply them to your kubernetes cluster.
+Note that this example uses the manifests from the demo project. You can alter the manifests above to suit your needs.
+
+If you want to test this implementation yourself, checkout the [prodtest-demo](https://github.com/brdv/prodtest-demo) repository!
+
+Clone the repo to your local machine, follow the README instructions, rund the scripts. Boom! You should have a (local) dark launched RegisterService up and running in no time!
