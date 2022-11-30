@@ -1,6 +1,6 @@
 ---
 title: Technical detail
-sidebar_position: 2
+sidebar_position: 1
 ---
 
 This page gives an overview of the components of the demo project.

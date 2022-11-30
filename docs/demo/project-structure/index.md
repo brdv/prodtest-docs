@@ -1,6 +1,6 @@
 ---
 title: Project Structure
-sidebar_position: 1
+sidebar_position: 0
 ---
 
 This pages shows the project structure and describes what files to find where.
