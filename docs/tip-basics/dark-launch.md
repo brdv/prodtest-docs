@@ -34,21 +34,34 @@ The second type of dark launches is a use case where the requests originates fro
 Which option is best suited for you, depends on your use case. Basically it depends of the architecture and the origin of the request you will use. If you want to dark launch something that recieves requests through a proxy, take advantage of that proxy. An example implementation can be [found here](/demo/examples/external-dl).
 If your use case consists of communication withing a cluster between two services, a proxy implementation of a dark launch might not suffice. In that case, look into other options as [described here](#).
 
-### Proxy
+### External
 
+As described above, an external dark launch can benefit the use of a proxy.
 A proxy - or proxyserver - is a server application that sits in between a client and a resource and that acts as an intermediary. The benefits of a proxy is that the client does not have to have a direct connection to the resource but can request a resource by the proxy. The proxy in turn passes the request to the resource and returns the response. This intermediary can allow you to make a copy of (a percentage of) all incoming requests and send that copy to a newer version of the resource. Both resources can log relevant information that in turn can be sent to a monitoring service. This would look as follows:
 
-![Dark Launch proxy concept](../../static/img/dark-launch-concept-proxy.png)
+![Dark Launch proxy concept](./dl-external.png)
 
 \* the response of Vnext will be discarded by the proxy. Only the response of Vcurrent will be sent back.
 
+### Internal
+
+When you want to dark launch a new service that communicates directly with another service in your cluster, you can use an internal dark launch. Internal meaning that the communication happens within your cluster.
+
+An internal dark launch can be implemented by using a message queue (often in combination with an Event-Driven Architecture, EDA). In this case you have a service (service A), that uses another service (service B) for your application. Normally, service A publishes an event to a message queue, which will be consumed by the subscriber, i.e. service B. You want to test how a new version of service B would handle real-world production data and decide to implement a dark launch.
+
+This would go as follows: setup your message queue to allow multiple consumers for an event. Let both service B vlatest and vnext consume those events and do their work. Eventually, both versions will return an event to the queue. The response of Vnext is flagged in some way (for example: with an origin = vnext property) telling service A to ignore this response. Below you can see a schematic view of this use case:
+
+![internal dark launch simple](./dl-internal.png)
+
+As you can see, service A only consumes responses (acknowledgement) of the Vlatest service.
+
 ## Risks of dark launch
 
-Since the goal of a dark launch it to test a new or updated service in a production environment under production load **without** exposing it to end users, the risks of a dark launch are relatively small. However there are a few things to keep in mind when implementing a dark launch.
+Since the goal of a dark launch is to test a new or updated service in a production environment under production load **without** exposing it to end users, the risks of a dark launch are relatively small. However there are a few things to keep in mind when implementing a dark launch.
 
 ### Data separation
 
-Since you are testing a new feature in a production envorinment using production data (from the mirrored requests), you have to be very careful nog to save the responses from the new feature or service to the production database that **is** exposed to end users. How you can separate the test and production data in the production environment will be elaborated in a future iteration.
+Since you are testing a new feature in a production envorinment using production data (from the mirrored requests), you have to be very careful nog to save the responses from the new feature or service to the production database that **is** exposed to end users. How you can separate the test and production data in the production environment will be elaborated in a **future iteration**.
 
 ## Example of a dark launch
 
