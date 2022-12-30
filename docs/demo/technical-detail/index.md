@@ -21,6 +21,6 @@ As of right now, the project consists of two components: the Proxy ([Traefik](ht
 
 The proxy is the only component that can be accesed from outside of the cluster. The job of the proxy is to evaluate the request and foreward it to the appropriate service.
 
-### RegisterService
+### OrderService
 
-The register service is the first entrypoint for requests. It is this service that handles orders from hypothetical customers. It consists of an API that has three endpoints. Read more about this service [here](./register-service).
+The order service is the first entrypoint for requests. It is this service that handles orders from hypothetical customers. It consists of an API that has three endpoints. Read more about this service [here](./order-service.md).
