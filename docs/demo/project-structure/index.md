@@ -33,7 +33,7 @@ The VSCode folder contains two files:
 
   Contains the settings to use the VSCode debugger.
 
-## Kubernetes manifests [ ./kubernetes ]
+## Kubernetes manifests [ ./manifests ]
 
 This folder contains all kubernetes manifests.
 
@@ -47,32 +47,44 @@ This folder contains scripts for the demo-project. Currently this folder contain
 
 ### docker [ ./scripts/docker ]
 
-- **latest.deploy.sh**
+- **build-prodtest-images.sh**
 
-  This script will build and deploy a 'latest'-tagged image of the RegisterService to the docker registry.
-
-- **next.deploy.sh**
-
-  This script will build and deploy a 'vnext'-tagged image of the RegisterService to the docker registry.
+  Script to build the docker images of the Kitchen- and OrderService.
 
 ### kubernetes [ ./scripts/kubernetes ]
-
-- **setup-darklaunch.sh**
-
-  This script applies all resources needed for the dark launch to a default kubernetes cluster.
 
 - **cleanup.sh**
 
   This script deletes all resources that are applied by the script above.
 
+- **pfw-rabbitmq.sh**
+
+  Script to open up the RabbitMQ dashboard on localhost:15672
+
+- **setup-infra.sh**
+
+  Sets up the infrastructure components of the project in kubernetes cluster. Things like the proxy, database and RabbitMQ instance.
+
+- **setup-darklaunch.sh**
+
+  This script applies all resources needed for the dark launch to a default kubernetes cluster.
+
 ## Source code [ ./src ]
 
 This folder contains all source code for the ProdtestDemo project. It contains the following subfolders:
 
-### RegisterService
+### Common
 
-This folder contains the source code for the RegisterService.
+This folder contains the code for shared resources for all services in the repository.
 
-### RegisterService.Tests
+### Services
 
-This folder contains the tests for the RegisterService.
+This forlder contains the code for all services of the demo project. The subfolders are:
+
+#### Kitchen
+
+Contains the projects for the KitchenService: the KitchenService itself and the tests for the KitchenService.
+
+#### Order
+
+Contains the projects for the OrderService: the Order API and the tests therefore.

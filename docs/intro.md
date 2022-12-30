@@ -21,7 +21,7 @@ There is a lot of information about [testing in production](https://www.google.c
 On this site you will find:
 
 - **Content** about TIP
-- **Content** about TIP
+- **Examples** of TIP implementations
 - **Tips** to implement TIP
 
 The prodtest project consists of two repositories: the [docs](https://github.com/brdv/prodtest-docs) and the [demo](https://github.com/brdv/prodtest-demo) project. The documentation repository is used to manage the [prodtest website](https://brdv.github.io/prodtest-docs) and the demo project provides extra information and examples on how to implement various ways of production testing.
