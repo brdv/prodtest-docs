@@ -4,7 +4,7 @@ sidebar_position: 2
 slug: order-service
 ---
 
-The OrderService is the first service that will be called by the proxy on incoming requests. This page describes how the service is designed and implemented.
+The order service is the first service that will be called by the proxy on incoming requests. This page describes how the service is designed and implemented.
 
 ## Architecture
 
@@ -32,7 +32,7 @@ Below you can see an overview of the implemented classes to realise the OrderSer
 
 ![class diagram](./img/order-service-class-diagram.png)
 
-Note: all classes marked with an asterix (\*) can be found in the Domain.Commons project. They are not directly part of the OrderService, but it does depend on them.
+Note: all classes marked with an asterix (\*) can be found in the Domain.Commons project. They are not directly part of the order service, but it does depend on them.
 
 <!-- TODO: Add link to domain.commons project above. -->
 
