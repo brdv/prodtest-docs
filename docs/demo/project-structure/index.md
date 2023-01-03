@@ -4,7 +4,7 @@ sidebar_position: 0
 ---
 
 This pages shows the project structure and describes what files to find where.
-The project consists of the followin files
+The project consists of the following files
 
 ## root [ ./ ]
 
@@ -79,7 +79,7 @@ This folder contains the code for shared resources for all services in the repos
 
 ### Services
 
-This forlder contains the code for all services of the demo project. The subfolders are:
+This folder contains the code for all services of the demo project. The subfolders are:
 
 #### Kitchen
 

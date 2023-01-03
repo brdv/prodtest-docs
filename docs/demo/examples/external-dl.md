@@ -34,7 +34,7 @@ This section describes how to implement an external dark launch using Traefik pr
 
 Great! You already have the cluster up and running. Now you want to add the new version of the RegisterService (with updated kitchen setup) to the cluster as a Vnext instance. Traefik has an option to implement data mirroring\*. Data mirroring is a technique that copies (a percentage) of data (request) that goes through a proxy.
 
-Once everything is setup and configured correcly for Traefik, you can start using custom traefik resources. In this example, we will use a [TraefikService](https://doc.traefik.io/traefik/routing/providers/kubernetes-crd/#kind-traefikservice) to use custom Traefik features and an [IngressRoute](https://doc.traefik.io/traefik/routing/providers/kubernetes-crd/#kind-ingressroute); an easier way to implement an ingress controller to your cluster. The TraefikService allows us to easily use Traefiks HTTP router with all of its features, like mirroring.
+Once everything is setup and configured correctly for Traefik, you can start using custom traefik resources. In this example, we will use a [TraefikService](https://doc.traefik.io/traefik/routing/providers/kubernetes-crd/#kind-traefikservice) to use custom Traefik features and an [IngressRoute](https://doc.traefik.io/traefik/routing/providers/kubernetes-crd/#kind-ingressroute); an easier way to implement an ingress controller to your cluster. The TraefikService allows us to easily use Traefiks HTTP router with all of its features, like mirroring.
 
 \* Before you can implement data mirroring within your cluster using Traefik, you have to install some custom [CRD's](https://doc.traefik.io/traefik/providers/kubernetes-crd/), or you can use the [Traefik Helm Chart](https://doc.traefik.io/traefik/getting-started/install-traefik/#use-the-helm-chart). The latter is used in the demo project.
 
@@ -55,14 +55,14 @@ spec:
     - kind: Rule
       match: Host(`localhost`) # < The rule to match for the services in the block below.
       services:
-        - name: dl-mirror # < name of the service to foreward to.
+        - name: dl-mirror # < name of the service to forward to.
           namespace: default
           kind: TraefikService # < As you can see, it's a TraefikService
 ```
 
 As you can see on line 1 we specify that we're using the resource definition of Traefik. On line 2 we specify the resource we want to use, an IngressRoute.
 Line 7 tells the IngressRoute to use the following routes on all incoming requests on port 80 (web).
-The match statment adds a rule that only executes the following block if the domain of the request is `localhost`.
+The match statement adds a rule that only executes the following block if the domain of the request is `localhost`.
 On line 12 and 14 the name of the service to send the requests to is specified, and as you can see, it's a TraefikService.
 
 Let's take a look at the TraefikService configuration:
@@ -86,7 +86,7 @@ spec:
 
 On line 2, we specify that this resource is a TraefikService, and we give it the name dl-mirror (line 4) as specified in the IngressRoute configuration.
 We specify that we want to use mirroring by adding a `mirroring` block to the spec on line 8.
-Inside this block we specifiy what and how we want to mirror incoming requests. The first block (line 9) is the service we use by default, meaning that all requests will go here and the responses of the used service will be returned. On line 12 we specify what service to mirror requests to and the last line specifies what percentage if incoming requests must be mirrored. In this case 100% (all requests).
+Inside this block we specify what and how we want to mirror incoming requests. The first block (line 9) is the service we use by default, meaning that all requests will go here and the responses of the used service will be returned. On line 12 we specify what service to mirror requests to and the last line specifies what percentage if incoming requests must be mirrored. In this case 100% (all requests).
 
 ### Applying resources
 

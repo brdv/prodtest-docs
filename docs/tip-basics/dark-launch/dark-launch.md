@@ -5,7 +5,7 @@ sidebar_position: 1
 
 # Dark launch
 
-This page describes a dark launch, also known as shadow release, dark mirror release or dark traffic test but at prodtest we call it a dark launch. A dark launch is a deployment or testing stategy for testing a newer version of a service or piece of software. The main goal of a dark launch is to mirror (a subset of) incoming production traffic to the new service but discarding the response. This allows you to monitor the funcitonality and performance of the service while under a real-world production load without taking the risk of exposing your users to it.
+This page describes a dark launch, also known as shadow release, dark mirror release or dark traffic test but at prodtest we call it a dark launch. A dark launch is a deployment or testing stategy for testing a newer version of a service or piece of software. The main goal of a dark launch is to mirror (a subset of) incoming production traffic to the new service but discarding the response. This allows you to monitor the functionality and performance of the service while under a real-world production load without taking the risk of exposing your users to it.
 
 This guide describes dark launches more in depth and shows various ways to implement a dark launch.
 
@@ -31,8 +31,8 @@ There are several proxies that support mirroring incoming requests, [NGINX](http
 
 The second type of dark launches is a use case where the requests originates from within your infrastructure. The request originates from a service A and goes to service B. Since this all happens within your infrastructure, this type of dark launch is called an internal dark launch. There are several ways to implement an internal dark launch. **_This use case will be explored in a later iteration._**
 
-Which option is best suited for you, depends on your use case. Basically it depends of the architecture and the origin of the request you will use. If you want to dark launch something that recieves requests through a proxy, take advantage of that proxy. An example implementation can be [found here](/demo/examples/external-dl).
-If your use case consists of communication withing a cluster between two services, a proxy implementation of a dark launch might not suffice. In that case, look into other options as [described here](#).
+Which option is best suited for you, depends on your use case. Basically it depends of the architecture and the origin of the request you will use. If you want to dark launch something that receives requests through a proxy, take advantage of that proxy. An example implementation can be [found here](/demo/examples/external-dl).
+If your use case consists of communication within a cluster between two services, a proxy implementation of a dark launch might not suffice. In that case, look into other options as [described here](#).
 
 ### External
 

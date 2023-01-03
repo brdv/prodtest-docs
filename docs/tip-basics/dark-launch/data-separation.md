@@ -26,7 +26,7 @@ Again, it will depend on your application and your needs if this options might b
 
 ### Extend data model
 
-The last option that will be discussed is to extend your data model. You will have to create a new field to your model, for example `generatedBy` that specifies by which version of the service the record is produced. You coul, for example, use `Vlatest` for your service that responds to the user input, and `Vnext` for the service that is 'in' dark launch. In your code, you can then specify in your queries that you only want to use data that has a specific tag.
+The last option that will be discussed is to extend your data model. You will have to create a new field to your model, for example `generatedBy` that specifies by which version of the service the record is produced. You could, for example, use `Vlatest` for your service that responds to the user input, and `Vnext` for the service that is 'in' dark launch. In your code, you can then specify in your queries that you only want to use data that has a specific tag.
 
 This option seems quite good. You have little to no extra work, and it is almost the same as a separate table. However, you should consider the cleanliness of your code and database. Since you table will contain data of all possible versions you have and your code/query has to check the version for each request. This is generally considered to be a bad practice.
 

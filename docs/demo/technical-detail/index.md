@@ -19,7 +19,7 @@ As of right now, the project consists of two components: the Proxy ([Traefik](ht
 
 ### Proxy (Traefik)
 
-The proxy is the only component that can be accesed from outside of the cluster. The job of the proxy is to evaluate the request and foreward it to the appropriate service.
+The proxy is the only component that can be accessed from outside of the cluster. The job of the proxy is to evaluate the request and forward it to the appropriate service.
 
 ### OrderService
 
