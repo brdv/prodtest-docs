@@ -30,5 +30,6 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Check spelling of docs
+        uses: crate-ci/typos@master
         with:
           config: .typos.toml
