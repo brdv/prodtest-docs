@@ -16,15 +16,15 @@ In this example we implement an external dark launch using a [Traefik proxy](htt
 Let's say you have a burger restaurant 🍔. You have an application that handles all incoming orders, and passes them to a message queue to be picked up by the kitchen. The kitchen then handles the orders and returns the order in a OrderHandled object.
 As manager of this burger restaurant, you want to test another way to process incoming order requests. You decide to use a dark launch to test this new process.
 
-The use case as described above has two main components. The 'thing' where the orders are registered, and where they are processed. In this example we will call them `OrderController` and `OrderService` respectively. These components together form the order service. All your software runs in a kubernetes cluster (in the ☁️ ofcourse!) and requests go through a [Traefik proxy](https://traefik.io).
+The use case as described above has two main components. The 'thing' where the orders are registered, and where they are processed. In this example we will call them `OrderController` and `OrderService` respectively. These components together form the order service. All your software runs in a kubernetes cluster (in the ☁️ of course!) and requests go through a [Traefik proxy](https://traefik.io).
 
 Your (simplified) architecture is as follows:
 
-![simple dl archiceture](./img/dark-launch/simple-architecture-dl.png)
+![simple dl architecture](./img/dark-launch/simple-architecture-dl.png)
 
 The (simplified) desired architecture is:
 
-![desired dl archiceture](./img/dark-launch/desired-architecture-dl.png)
+![desired dl architecture](./img/dark-launch/desired-architecture-dl.png)
 
 ## Implementation
 

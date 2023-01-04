@@ -28,7 +28,7 @@ The above layers and flow are implemented as followed:
 
 ![class diagram](./img/kitchen-service-class-diagram.png)
 
-Note: all classes marked with an asterix (\*) can be found in the Domain.Commons project. They are not directly part of the kitchen service, but it does depend on them.
+Note: all classes marked with an asterisk (\*) can be found in the Domain.Commons project. They are not directly part of the kitchen service, but it does depend on them.
 
 <!-- TODO: Add link to domain.commons project above and below. -->
 

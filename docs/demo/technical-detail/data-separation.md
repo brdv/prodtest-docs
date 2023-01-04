@@ -14,7 +14,7 @@ As a refresher, the architecture of the demo project:
 
 In the demo, we have two main components that store or save data: the message queue and the database. The kitchen service publishes new orders onto the message queue. The kitchen service is subscribe to the queue that those messages are published to and - after preparing - will save handled orders into a database.
 
-This leaves us with two possible ways of data polltion: the database and the message queue.
+This leaves us with two possible ways of data pollution: the database and the message queue.
 
 ## Database
 
@@ -43,7 +43,7 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 }
 ```
 
-This method overrides the OnModelCreating that is defined by the class DbContext which KitchenDbContext inherits. It is used to specify how to create the database models. On line 3 we check what the version is (this could be an environment variable, for example). On line 5 we explicitly specify what tableName to use for the HandledOrders objects and on line 7, we pass the modelbuilder to the base class (DbContext).
+This method overrides the OnModelCreating that is defined by the class DbContext which KitchenDbContext inherits. It is used to specify how to create the database models. On line 3 we check what the version is (this could be an environment variable, for example). On line 5 we explicitly specify what tableName to use for the HandledOrders objects and on line 7, we pass the modelBuilder to the base class (DbContext).
 
 If the version is `latest`, we make the application use a table named `HandledOrders`. In all other cases, for example if the version variable is `Vnext`, we use the table named `HandledOrdersShadow`.
 
