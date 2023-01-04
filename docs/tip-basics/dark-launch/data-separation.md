@@ -32,11 +32,11 @@ This option seems quite good. You have little to no extra work, and it is almost
 
 ## Overview
 
-| Option            | Description                                                                                                                          | Pros                                   | Cons                                       |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------- | ------------------------------------------ |
-| Separate database | Create a separate database to be used by Vnext. Could start as a replica.                                                            | Most robust. Lowest risk of congestion | Quite complex, possibly expensive.         |
-| Separate table    | Create a separate table to be used by Vnext. (For example TableShadow)                                                               | Quite simple, low cost.                | Less robust, minor data congestion risk.   |
-| Extend data model | Extend the existing data model with a new field. For example: `generatedBy` that specifies what is production data, and what is not. | Cheapest solution, quite simple        | Not very clean, higher risk of congestion. |
+| Option            | Description                                                                                                                          | Pros                                  | Cons                                      |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------- | ----------------------------------------- |
+| Separate database | Create a separate database to be used by Vnext. Could start as a replica.                                                            | Most robust. Lowest risk of pollution | Quite complex, possibly expensive.        |
+| Separate table    | Create a separate table to be used by Vnext. (For example TableShadow)                                                               | Quite simple, low cost.               | Less robust, minor data pollution risk.   |
+| Extend data model | Extend the existing data model with a new field. For example: `generatedBy` that specifies what is production data, and what is not. | Cheapest solution, quite simple       | Not very clean, higher risk of pollution. |
 
 ## Message Queue
 

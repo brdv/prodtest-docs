@@ -7,9 +7,9 @@ As described on the dark launch page, an external dark launch means that the req
 
 For this example we use the [prodtest-demo](https://github.com/brdv/prodtest-demo) project.
 
-## TLDR;
+## TL;DR
 
-In this example we implement an external dark launch using a [Traefik proxy](https://traefik.io). The software runs in a kubernetes cluster. ([Check kubernetes manifests here.](#))
+In this example we implement an external dark launch using a [Traefik proxy](https://traefik.io). The software runs in a kubernetes cluster. ([Check kubernetes manifests here.](#resource-definition))
 
 ## The use case
 
