@@ -51,6 +51,26 @@ In this way, we make sure that two different versions of the application (i.e. V
 
 ## Message Queue
 
+Both the kitchen service and the order service both use the message queue. The order service published messages on the queue, which are consumed by the kitchen service.
+
 ### Options and choice
 
+For message queues, the two main options are: using a separate queue or using routing to separate the messages on the queue. In the demo project, a separate queue was implemented. The main reason therefore is that it is the cleanest solution. In this way, there is practically no data pollution since both versions publish to a separate queue. Since everything is running locally, the monetary cost is negligible.
+
 ### Implementation
+
+The implementation of this way of separating data is quite simple:
+
+```csharp showLineNumbers
+private void PublishNewOrder(OrderModel order)
+{
+    var serializedOrder = JsonSerializer.Serialize(order);
+    var versionTag = _configuration["DL_INTERNAL_TAG"];
+
+    _rmqService.PublishEvent(_configuration["RMQ_HOST"], serializedOrder, $"dl-exchange-{versionTag}");
+}
+```
+
+As you can see, the exchange used by the `PublishNewOrder` method in the `OrderService` makes the exchange dependent on the version tag. This tag is set to either `latest` or `Vnext`. We can then tell our kitchen service to only listen for messages on the exchange with the `latest` tag.
+
+**Note:** we use exchanges in stead of queues for publishing, more about that [here](../examples/internal-dl.md#rabbitmq-exchanges).
