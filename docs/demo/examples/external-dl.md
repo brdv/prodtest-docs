@@ -13,16 +13,16 @@ In this example we implement an external dark launch using a [Traefik proxy](htt
 
 ## The use case
 
-Let's say you have a burger restaurant 🍔. You have an application that handles all incoming orders, and passes them to a kitchen. The kitchen then handles the orders and returns the order in a OrderHandled object.
-As manager of this burger restaurant, you want to test a new setup of the kitchen and check if this will handle orders faster. You decide to use a dark launch to test your new kitchen.
+Let's say you have a burger restaurant 🍔. You have an application that handles all incoming orders, and passes them to a message queue to be picked up by the kitchen. The kitchen then handles the orders and returns the order in a OrderHandled object.
+As manager of this burger restaurant, you want to test another way to process incoming order requests. You decide to use a dark launch to test this new process.
 
-The use case as described above has two main components. The 'thing' where the orders are registered, and the kitchen. In this example we will call them `OrderController` and `KitchenService` respectively. These components together form the RegisterService (as in registry). All your software runs in a kubernetes cluster (in the ☁️ ofcourse!) and requests go through a [Traefik proxy](https://traefik.io).
+The use case as described above has two main components. The 'thing' where the orders are registered, and where they are processed. In this example we will call them `OrderController` and `OrderService` respectively. These components together form the order service. All your software runs in a kubernetes cluster (in the ☁️ ofcourse!) and requests go through a [Traefik proxy](https://traefik.io).
 
 Your (simplified) architecture is as follows:
 
 ![simple dl archiceture](./img/dark-launch/simple-architecture-dl.png)
 
-The desired architecture is:
+The (simplified) desired architecture is:
 
 ![desired dl archiceture](./img/dark-launch/desired-architecture-dl.png)
 
@@ -32,7 +32,7 @@ This section describes how to implement an external dark launch using Traefik pr
 
 ### Traefik
 
-Great! You already have the cluster up and running. Now you want to add the new version of the RegisterService (with updated kitchen setup) to the cluster as a Vnext instance. Traefik has an option to implement data mirroring\*. Data mirroring is a technique that copies (a percentage) of data (request) that goes through a proxy.
+Great! You already have the cluster up and running. Now you want to add the new version of the order service to the cluster as a Vnext instance. Traefik has an option to implement data mirroring\*. Data mirroring is a technique that copies (a percentage) of data (request) that goes through a proxy.
 
 Once everything is setup and configured correctly for Traefik, you can start using custom traefik resources. In this example, we will use a [TraefikService](https://doc.traefik.io/traefik/routing/providers/kubernetes-crd/#kind-traefikservice) to use custom Traefik features and an [IngressRoute](https://doc.traefik.io/traefik/routing/providers/kubernetes-crd/#kind-ingressroute); an easier way to implement an ingress controller to your cluster. The TraefikService allows us to easily use Traefiks HTTP router with all of its features, like mirroring.
 
@@ -76,10 +76,10 @@ metadata:
 
 spec:
   mirroring: # < Specify that we want to use mirroring.
-    name: register-service-latest # < The service to use by default.
+    name: order-service-latest # < The service to use by default.
     port: 80
     mirrors:
-      - name: register-service-next # < The service to mirror to.
+      - name: order-service-next # < The service to mirror to.
         port: 80
         percent: 100 # < The percentage of requests to mirror.
 ```
@@ -95,4 +95,4 @@ Note that this example uses the manifests from the demo project. You can alter t
 
 If you want to test this implementation yourself, checkout the [prodtest-demo](https://github.com/brdv/prodtest-demo) repository!
 
-Clone the repo to your local machine, follow the README instructions, rund the scripts. Boom! You should have a (local) dark launched RegisterService up and running in no time!
+Clone the repo to your local machine, follow the README instructions, run the scripts. Boom! You should have a (local) dark launched order service up and running in no time!
