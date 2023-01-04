@@ -2,7 +2,7 @@
 title: Data Separation
 ---
 
-As mentioned on the [Dark Launch page](/tip-basics/dark-launch.md) there are different ways an application cal collect and store data. For this guide, we will stick to the ways that are used in the [prodtest-demo](https://github.com/brdv/prodtest-demo) project: a database and a message queue.
+As mentioned on the [Dark Launch page](./dark-launch.md) there are different ways an application cal collect and store data. For this guide, we will stick to the ways that are used in the [prodtest-demo](https://github.com/brdv/prodtest-demo) project: a database and a message queue.
 
 ## Database
 
