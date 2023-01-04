@@ -27,7 +27,7 @@ The order service is the first entrypoint for requests. It is this service that 
 
 ### Message Queue (RabbitMQ)
 
-The Message Queue (MQ) is a way to allow for asynchronous communication between two services. In the demo project, it is used for communication between the order- and kitchen services. Morde about the messsage queue can be found [here](./message-queue.md).
+The Message Queue (MQ) is a way to allow for asynchronous communication between two services. In the demo project, it is used for communication between the order- and kitchen services. Morde about the message queue can be found [here](./message-queue.md).
 
 ### KitchenService
 

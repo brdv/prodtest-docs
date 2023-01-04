@@ -40,9 +40,11 @@ Note: all classes marked with an asterix (\*) can be found in the Domain.Commons
 
 In the class diagram above you see two services; the (I)OrderService and the (I)RabbitMQService. These services are created and passed by using [dependency injection](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-7.0). An example of how this is implemented can be found below.
 
-![Dependency Injection](./img/di-example.png)
+![Dependency Injection](./img/di-example-order-service.png)
 
 ## Development Choices
+
+Below you find a table containing (architectural) decisions with their context, options, choice and rationale.
 
 | Context                                                                                 | Options                                                                                             | Choice      | Rationale                                                                                                                                        |
 | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
