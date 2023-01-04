@@ -36,6 +36,11 @@ Note: all classes marked with an asterix (\*) can be found in the Domain.Commons
 
 <!-- TODO: Add link to domain.commons project above. -->
 
+In the image above, you can see that the order service consists of various classes.
+
+The main entry point is the `OrderController`, which inherits from the `ApiController`. The controller specifies endpoint on which the Order API is reachable. It has a dependency on the `IOrderService`, which is injected as a `OrderService`. The order service is responsible for all business logic on (new) orders. It is dependent on the `IRabbitMQService`, in the form of the `RabbitMQService`, which is a wrapper to interact with the RabbitMQ Message Queue.
+Besides the classes mentioned, the project is dependent on some model classes. These classes are not directly part of the order service, but are in a separate (shared) project called Domain.Common. It is used by adding a project reference to the `.csproj` file.
+
 ### Dependencies
 
 In the class diagram above you see two services; the (I)OrderService and the (I)RabbitMQService. These services are created and passed by using [dependency injection](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-7.0). An example of how this is implemented can be found below.

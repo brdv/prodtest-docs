@@ -30,7 +30,12 @@ The above layers and flow are implemented as followed:
 
 Note: all classes marked with an asterix (\*) can be found in the Domain.Commons project. They are not directly part of the kitchen service, but it does depend on them.
 
-<!-- TODO: Add link to domain.commons project above. -->
+<!-- TODO: Add link to domain.commons project above and below. -->
+
+As you can see in the image above. The kitchen service consists of various classes.
+
+The main starting point is the `KitchenWorker`. This class is responsible for subscribing and listening to the message queue for new orders. It depends on the `IKitchenService`, in the form of the `KitchenService`. This service is responsible for handling orders and is dependent on the `IKitchenRepository` in the form of the `KitchenRepository` implementation. The `KitchenRepository` functions as a data access layer over the database and is dependent on the `KitchenDbContext`. This class makes the connection with the database and sets up al relevant tables and data models. It is a subclass of Entity Framework's [`DbContext`](https://learn.microsoft.com/en-us/dotnet/api/system.data.entity.dbcontext?view=entity-framework-6.2.0).
+Thereby, in the class diagram, you can find two model classes. An `OrderModel`, and a `HandledOrder`. These classes are not directly part of the kitchen service, but the Domain.Commons project. The kitchen service is dependent on these classes and uses them via a project reference.
 
 ## Dependencies
 
