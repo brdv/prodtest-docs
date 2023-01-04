@@ -18,13 +18,13 @@ In the demo project we have two main components; the [order service](../technica
 Let's say you want to test a new kitchen, which should increase the speed of handling orders. The kitchen service checks the queue for new orders, and will process and prepare the new orders.
 As manager of this burger restaurant, you want to test another way to prepare orders. You decide to use a dark launch to test this new process.
 
-One important part of this use case is that you want to handle all or some of the orders that appear on the queue by both the current (Vlatest) and the next (Vnext) version of the kitchen service. To do so, you have to make sure that multiple services can be suscribed to the same messages or queues.
+One important part of this use case is that you want to handle all or some of the orders that appear on the queue by both the current (Vlatest) and the next (Vnext) version of the kitchen service. To do so, you have to make sure that multiple services can be subscribed to the same messages or queues.
 
 The simplified base architecture is as follows:
 
 ![Simple architecture](./img/dark-launch/simple-internal-dl.png)
 
-You want to be able to do somthing like:
+You want to be able to do something like:
 
 ![Desired architecture](./img/dark-launch/desired-internal-dl.png)
 
@@ -40,7 +40,7 @@ To start, you have to make sure that it is possible to have multiple subscribers
 
 The message queue used in the demo project is RabbitMQ. It provides a feature that does exactly what we want: [exchanges](https://www.rabbitmq.com/tutorials/amqp-concepts.html#exchanges).
 
-An exchange is basically a middleman that all messages are sent to. It allows the message to be sent to mulitple queues. In this case, we want the order service to send all messages to the 'main' exchange. The exchange will send the message to all queues that are bound to the exchange. Therefore, all services that have a queue that is bound to the exchange, will receive the messages.
+An exchange is basically a middleman that all messages are sent to. It allows the message to be sent to multiple queues. In this case, we want the order service to send all messages to the 'main' exchange. The exchange will send the message to all queues that are bound to the exchange. Therefore, all services that have a queue that is bound to the exchange, will receive the messages.
 
 This is implemented as follows:
 
