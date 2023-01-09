@@ -22,3 +22,14 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Test build website
         run: yarn build
+  spellcheck:
+    name: Spell Check with Typos
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Actions Repository
+        uses: actions/checkout@v2
+
+      - name: Check spelling of docs
+        uses: crate-ci/typos@master
+        with:
+          config: .typos.toml
