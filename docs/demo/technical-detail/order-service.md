@@ -32,9 +32,7 @@ Below you can see an overview of the implemented classes to realize the OrderSer
 
 ![class diagram](./img/order-service-class-diagram.png)
 
-Note: all classes marked with an asterisk (\*) can be found in the Domain.Commons project. They are not directly part of the order service, but it does depend on them.
-
-<!-- TODO: Add link to domain.commons project above. -->
+Note: all classes marked with an asterisk (\*) can be found in the [Domain.Commons](https://github.com/brdv/prodtest-demo/tree/sprint/5/src/Common/Domain.Common) project. They are not directly part of the order service, but it does depend on them.
 
 In the image above, you can see that the order service consists of various classes.
 
