@@ -9,7 +9,7 @@ For this example, we use the [prodtest-demo](https://github.com/brdv/prodtest-de
 
 ## TL;DR
 
-In this example, we implement and internal dark launch for two services that communicate via a Message Queue. The software runs in a kubernetes cluster. ([See kubernetes description.](../technical-detail/kubernetes-setup.md))
+In this example, we implement and internal dark launch for two services that communicate via a Message Queue. The software runs in a kubernetes cluster.
 
 ## The use case
 

@@ -1,6 +1,6 @@
 ---
 title: Testing the project
-sidebar_position: 6
+sidebar_position: 7
 ---
 
 This page describes the way the project is tested. Two types of testing have been applied. Software testing using unit tests and Mutation testing using [Stryker](https://stryker-mutator.io).
