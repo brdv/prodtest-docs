@@ -12,7 +12,8 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "gen-pdf": "npx mr-pdf --initialDocURLs='https://brdv.github.io/prodtest-docs/' --paginationSelector='a.pagination-nav__link--next' --excludeSelectors='.fixedHeaderContainer,footer.nav-footer,#docsNav,nav.onPageNav,a.edit-page-link,div.docs-prevnext' --cssStyle='.navPusher {padding-top: 0;}' --contentSelector='article' --coverImage='https://www.infosupport.com/wp-content/themes/roots.isb02122022/assets/img/logo-infosupport.svg' --coverTitle='Prodtest Docs'"
   },
   "dependencies": {
     "@docusaurus/core": "2.1.0",
